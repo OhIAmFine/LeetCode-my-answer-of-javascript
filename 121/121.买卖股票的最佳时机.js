@@ -1,3 +1,25 @@
+var maxProfit = function (prices) {
+  if (!prices.length) return 0
+  let res = 0
+  let profit = new Array()
+  for (let i = 0; i < prices.length; i++) {
+    profit[i] = new Array()
+    profit[i][0] = 0
+    profit[i][1] = 0
+    profit[i][2] = 0
+  }
+  profit[0][0] = 0
+  profit[0][1] = -prices[0]
+  profit[0][2] = 0
+  for(let i = 1; i < prices.length; i ++) {
+    profit[i][0] = profit[i - 1][0]
+    profit[i][1] = Math.max(profit[i - 1][1], profit[i - 1][0]  - prices[i])
+    profit[i][2] = profit[i - 1][1] + prices[i]
+    res = Math.max(res, profit[i][0], profit[i][2])
+  }
+  return res
+}
+
 var maxProfit = function(prices) {
   let min = Infinity
   let index = -1

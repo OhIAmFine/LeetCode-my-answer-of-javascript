@@ -10,10 +10,10 @@ var maxProfit = function (k, prices) {
     }
   }
 
-  MP[0][0][0] = -prices[0]
+  MP[0][0][0] = prices[0]
   MP[0][0][1] = -Infinity
   for (let i = 1; i < k; i++) {
-    MP[0][i][0] = -Infinity
+    MP[0][i][0] = prices[0]
     MP[0][i][1] = -Infinity
   }
   console.log(MP)
@@ -28,4 +28,4 @@ var maxProfit = function (k, prices) {
   console.log(MP)
 }
 
-maxProfit(2, [2, 4, 1])
+maxProfit(2, [3,2,6,5,0,3])
