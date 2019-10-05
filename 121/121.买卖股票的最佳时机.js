@@ -1,3 +1,5 @@
+// 动态规划
+
 var maxProfit = function (prices) {
   if (!prices.length) return 0
   let res = 0
@@ -20,6 +22,7 @@ var maxProfit = function (prices) {
   return res
 }
 
+// 贪心算法
 var maxProfit = function(prices) {
   let min = Infinity
   let index = -1
