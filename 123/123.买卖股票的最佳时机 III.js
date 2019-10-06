@@ -22,7 +22,6 @@ var maxProfit = function (prices) {
 
     MP[i][2][0] = Math.max(MP[i - 1][2][0], MP[i - 1][1][1] + prices[i])
   }
-  console.log(MP)
   const result = Math.max(MP[prices.length - 1][0][0], MP[prices.length - 1][1][0], MP[prices.length - 1][2][0])
   return result > 0 ? result : 0
 }
