@@ -4,8 +4,8 @@ git add .
 
 git commit -m  "$commit_msg"
 
-echo "\n =====>  start to add and commit message: $commit_msg  =====>\n"
+echo "\n =====>  start to add and commit message: $commit_msg  =====> \n"
 
 git push origin master
 
-echo "\n =====>  successful to push to origin master =====>\n"
+echo "\n =====>  successful to push to origin master =====> \n"
