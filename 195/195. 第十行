@@ -1,2 +1,10 @@
 # Read from the file file.txt and output the tenth line to stdout.
+
+// way 1
 awk 'NR==10 {print $0}' file.txt
+
+// way 2
+sed  -n '10p' file.txt
+
+// way 3
+tail -n +10 file.txt | head -1
