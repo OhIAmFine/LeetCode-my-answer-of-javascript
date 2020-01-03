@@ -1,8 +1,18 @@
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
 var isPerfectSquare = function (num) {
-  let res = 0
-  while (res * res < num) {
-    res++
-    if (res * res === num && (res + 1) * (res + 1) > num) return true
-  }
-  return false
-}
+    let left = 0
+    let right = num
+    while (left < right - 1) {
+        let mid = parseInt((right + left) / 2)
+        if (mid * mid === num) return true
+        if (mid * mid > num) {
+            right = mid
+        } else {
+            left = mid
+        }
+    }
+    return num === 1 ? true : false
+};
