@@ -3,8 +3,8 @@
 主要用来记录自己的刷题思路，目录号即对应相应的题号。
 欢迎 star 并参与讨论。
 
-To learn better about algorithm and data structure， I use javascript to write down solution in the Leetcode website.
+To learn better about algorithm and data structure， I use javascript to write down solutions in the Leetcode website.
 As we konw, javascript doesn't have some data structure that java and python have.
 So I use this repo to record some soutions in my javascript way. Directory number is the solution number in the Leetcode website.
-welcome to star and discuss.
+Welcome to star and discuss.
 
