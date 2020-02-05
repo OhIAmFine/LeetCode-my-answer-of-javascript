@@ -20,7 +20,6 @@ var addStrings = function (num1, num2) {
         }
         carry = temp >= 10 ? 1 : 0
         res = temp % 10 + res
-        console.log(i, j, num1[i], num2[j])
         i--
         j--
     }
