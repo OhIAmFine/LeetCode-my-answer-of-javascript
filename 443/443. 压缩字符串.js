@@ -2,13 +2,13 @@
  * @param {character[]} chars
  * @return {number}
  */
-var compress = function(chars) {
+var compress = function (chars) {
     let count = 1;
     let i = 0;
     while (i < chars.length) {
         if (chars[i] === chars[i + 1]) {
             count++;
-            chars.splice(i,1);
+            chars.splice(i, 1);
         } else {
             if (count > 1) {
                 i++;
