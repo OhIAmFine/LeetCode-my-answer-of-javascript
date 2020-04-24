@@ -9,12 +9,12 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var findTilt = function(root) {
-    if(!root)return 0;
-    return Math.abs(dfs(root.left)-dfs(root.right))+findTilt(root.left)+findTilt(root.right);
+var findTilt = function (root) {
+    if (!root) return 0;
+    return Math.abs(dfs(root.left) - dfs(root.right)) + findTilt(root.left) + findTilt(root.right);
 
-    function dfs(root){
-        if(!root)return 0;
-        return root.val + dfs(root.left)+dfs(root.right);
+    function dfs(root) {
+        if (!root) return 0;
+        return root.val + dfs(root.left) + dfs(root.right);
     }
 };
