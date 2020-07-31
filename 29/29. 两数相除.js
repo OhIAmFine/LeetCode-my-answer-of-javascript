@@ -10,10 +10,10 @@ var divide = function (dividend, divisor) {
     divisor = Math.abs(divisor)
     const strdiv = String(dividend)
     let quot = '', remainder = ''
-    for (var i = 0; i < strdiv.length; i++) {
+    for (let i = 0; i < strdiv.length; i++) {
         remainder += strdiv[i]
-        var temp = 0
-        var m = parseInt(remainder)
+        let temp = 0
+        let m = parseInt(remainder)
         while (divisor <= m) {
             m = m - divisor
             temp++
