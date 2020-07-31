@@ -1,0 +1,27 @@
+/**
+ * @param {number} dividend
+ * @param {number} divisor
+ * @return {number}
+ */
+var divide = function (dividend, divisor) {
+    let res = 0
+    let sign = dividend > 0 ? divisor > 0 ? '' : '-' : divisor > 0 ? '-' : ''
+    dividend = Math.abs(dividend)
+    divisor = Math.abs(divisor)
+    const strdiv = String(dividend)
+    let quot = '', remainder = ''
+    for (var i = 0; i < strdiv.length; i++) {
+        remainder += strdiv[i]
+        var temp = 0
+        var m = parseInt(remainder)
+        while (divisor <= m) {
+            m = m - divisor
+            temp++
+        }
+        quot += temp
+        remainder = String(m)
+    }
+    res = parseInt(sign + quot)
+    if (res > Math.pow(2, 31) - 1 || res < Math.pow(-2, 31)) return Math.pow(2, 31) - 1
+    return res
+};
