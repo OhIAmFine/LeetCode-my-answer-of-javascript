@@ -1,9 +1,3 @@
-//Definition for a binary tree node.
-function TreeNode(val) {
-    this.val = val;
-    this.left = this.right = null;
-}
-
 /**
  * @param {number[]} preorder
  * @param {number[]} inorder
@@ -15,14 +9,13 @@ var buildTree = function (preorder, inorder) {
         store[inorder[i]] = i
     }
     const buildTreeHelper = (pStart, pEnd, iStart, iEnd) => {
-        if (pStart > pEnd) return null
-        const rootVal = preorder[pStart]
-        let root = new TreeNode(rootVal)
-        let index = store[rootVal]
+        if (pStart === pEnd) return null
+        const index = store[preorder[pStart]]
+        const root = new TreeNode(inorder[index])
         const leftNum = index - iStart
-        root.left = buildTreeHelper(pStart + 1, pStart + leftNum, iStart, index - 1)
+        root.left = buildTreeHelper(pStart + 1, pStart + leftNum + 1, iStart, iStart + index)
         root.right = buildTreeHelper(pStart + leftNum + 1, pEnd, index + 1, iEnd)
         return root
     }
-    return buildTreeHelper(0, preorder.length - 1, 0, inorder.length - 1)
+    return buildTreeHelper(0, preorder.length, 0, inorder.length)
 };
