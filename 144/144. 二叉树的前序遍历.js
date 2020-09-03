@@ -40,3 +40,20 @@ var preorderTraversal = function (root) {
     dfs(root)
     return res
 };
+
+var preorderTraversal = function (root) {
+    if (!root) return []
+    const res = []
+    const stack = []
+    let pointer = root
+    while (pointer || stack.length) {
+        while (pointer) {
+            res.push(pointer.val)
+            stack.push(pointer)
+            pointer = pointer.left
+        }
+        pointer = stack.pop()
+        pointer = pointer.right
+    }
+    return res
+};
