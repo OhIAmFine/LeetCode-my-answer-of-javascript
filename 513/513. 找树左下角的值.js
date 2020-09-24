@@ -26,3 +26,15 @@ var findBottomLeftValue = function (root) {
         dfs(node.right, depth + 1)
     }
 };
+
+var findBottomLeftValue = function (root) {
+    let queue = [root]
+    let node
+    while (queue.length) {
+        node = queue.pop()
+        console.log(node.val)
+        if (node.right) queue.unshift(node.right)
+        if (node.left) queue.unshift(node.left)
+    }
+    return node.val
+};
