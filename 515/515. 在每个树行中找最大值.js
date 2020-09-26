@@ -19,8 +19,7 @@ var largestValues = function (root) {
     const size = store.length
     for (let i = 0; i < size; i++) {
       const temp = store.pop()
-      const val = temp.val
-      if (val > max) max = val
+      if (temp.val > max) max = temp.val
       if (temp.left) store.unshift(temp.left)
       if (temp.right) store.unshift(temp.right)
     }
