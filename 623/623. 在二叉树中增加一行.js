@@ -17,21 +17,21 @@ var addOneRow = function (root, v, d) {
     node.left = root
     return node
   }
-  insert(v, root, 1, d)
+  insert(root, 1)
   return root
 
-  function insert (val, node, curDepth, depth) {
+  function insert (node, curDepth) {
     if (!node) return
-    if (curDepth === depth - 1) {
+    if (curDepth === d - 1) {
       let tree = node.left
-      node.left = new TreeNode(val)
+      node.left = new TreeNode(v)
       node.left.left = tree
       tree = node.right
-      node.right = new TreeNode(val)
+      node.right = new TreeNode(v)
       node.right.right = tree
     } else {
-      insert(val, node.left, curDepth + 1, depth)
-      insert(val, node.right, curDepth + 1, depth)
+      insert(node.left, curDepth + 1)
+      insert(node.right, curDepth + 1)
     }
   }
 }
