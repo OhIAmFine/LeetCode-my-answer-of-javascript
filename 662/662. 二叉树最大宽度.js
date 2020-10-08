@@ -11,21 +11,23 @@
  * @return {number}
  */
 var widthOfBinaryTree = function (root) {
-  if (!root) {
-    return 0
-  }
-  let ans = 1, que = [[0, root]]
-  while (que.length) {
-    ans = Math.max(ans, que[que.length - 1][0] - que[0][0] + 1)
-    let tmp = []
-    for (const [i, q] of que) {
-      q.left && tmp.push([i * 2, q.left])
-      q.right && tmp.push([i * 2 + 1, q.right])
+  let res = BigInt(0)
+  let left = BigInt(0)
+  let depth = 0
+  const queue = [{ node: root, depth: 0, pos: BigInt(0) }]
+  while (queue.length) {
+    const cur = queue.shift()
+    if (cur.node != null) {
+      queue.push({ node: cur.node.left, depth: cur.depth + 1, pos: BigInt(cur.pos * BigInt(2)) })
+      queue.push({ node: cur.node.right, depth: cur.depth + 1, pos: BigInt(cur.pos * BigInt(2) + BigInt(1)) })
+      if (cur.depth != depth) {
+        depth = cur.depth
+        left = cur.pos
+      }
+      if (cur.pos - left + BigInt(1) > res) {
+        res = cur.pos - left + BigInt(1)
+      }
     }
-    if (que[0][0] > 1 << 32) {
-      tmp.forEach(v => v[0] -= que[0][0])
-    }
-    que = tmp
   }
-  return ans
-}
+  return res
+};
