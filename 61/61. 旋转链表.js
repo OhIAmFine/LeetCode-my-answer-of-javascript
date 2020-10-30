@@ -20,9 +20,9 @@ var rotateRight = function (head, k) {
     }
     oldTail.next = head
 
-    let pos = len - k % len - 1
+    let pos = len - (k % len) - 1
     let newTail = head
-    for (let i = 0; i < pos; i++) newTail = newTail.next
+    for (let i = 0; i < pos; i++)newTail = newTail.next
     let newHead = newTail.next
     newTail.next = null
     return newHead
