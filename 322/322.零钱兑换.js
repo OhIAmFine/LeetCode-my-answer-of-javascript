@@ -11,4 +11,3 @@ var coinChange = function (coins, amount) {
   }
   return DP[amount] > amount ? -1 : DP[amount]
 }
-console.log(coinChange([1, 2, 5], 11))
