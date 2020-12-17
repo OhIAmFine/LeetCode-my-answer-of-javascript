@@ -26,20 +26,20 @@
 
 // 第二种解法
 var totalNQueens = function (n) {
-  let count = 0
-  const DFS = (level, col, pie, na) => {
-    if (level >= n) {
-      count++
-      return
+    let count = 0
+    const DFS = (level, col, pie, na) => {
+        if (level >= n) {
+            count++
+            return
+        }
+        let baits = (~(col | pie | na)) & ((1 << n) - 1)
+        while (baits > 0) {
+            const p = baits & -baits
+            DFS(level + 1, col | p, (pie | p) << 1, (na | p) >> 1)
+            baits &= baits - 1
+        }
     }
-    let baits = (~(col | pie | na)) & ((1 << n) - 1)
-    while (baits > 0) {
-      const p = baits & -baits
-      DFS(level + 1, col | p, (pie | p) << 1, (na | p) >> 1)
-      baits &= baits - 1
-    }
-  }
-  DFS(0, 0, 0, 0)
-  return count
+    DFS(0, 0, 0, 0)
+    return count
 }
 console.log(totalNQueens(4))
