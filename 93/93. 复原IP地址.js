@@ -27,7 +27,6 @@ var restoreIpAddresses = function (s) {
         let addr = 0;
         for (let segEnd = segStart; segEnd < s.length; ++segEnd) {
             addr = addr * 10 + (s.charAt(segEnd) - '0');
-            console.log(addr, (s.charAt(segEnd) - '0'))
             if (addr > 0 && addr <= 0xFF) {
                 segments[segId] = addr;
                 dfs(s, segId + 1, segEnd + 1);
