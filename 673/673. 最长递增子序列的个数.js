@@ -22,6 +22,5 @@ var findNumberOfLIS = function (nums) {
     for (let i = 0; i < count.length; i++) {
         if (dp[i] === max) res += count[i]
     }
-    console.log(dp, res, count)
     return res
 };
