@@ -2,14 +2,18 @@
  * @param {string} s
  * @return {string[][]}
  */
-var partition = function (s, dp = Array.from(s, _ => Array(s.length).fill(false)), res = []) {
-  for (var i = s.length; i--;)
-    for (var j = i; j < s.length; j++)
-      dp[i][j] = s[i] === s[j] && (j - i < 2 || dp[i + 1][j - 1])
-  var dfs = (r, start) => {
-    start === s.length && res.push(r)
-    for (var j = start; j < s.length; j++)
-      dp[start][j] && dfs(r.concat([s.substring(start, j + 1)]), j + 1)
+var partition = function (s) {
+  const res = []
+  const len = s.length
+  const isTrue = (str) => str.split("").reverse().join("") === str
+  function dfs(start, str, path) {
+    if (start === len) return res.push(path)
+    for (let i = start; i < len; i++) {
+      const string = s.slice(start, i + 1)
+      if (string && isTrue(string)) dfs(i + 1, string, [...path, string])
+    }
   }
-  return dfs([], 0), res
-}
+  dfs(0, "", [])
+  return res
+};
+
