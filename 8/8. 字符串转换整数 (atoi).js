@@ -18,7 +18,7 @@ var myAtoi = function (str) {
 
         getIndex(char) {
             if (char === ' ') {
-                return 0;
+                return 0;g
             } else if (char === '-' || char === '+') {
                 return 1;
             } else if (typeof Number(char) === 'number' && !isNaN(char)) {
