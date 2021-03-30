@@ -20,3 +20,21 @@ var detectCycle = function (head) {
     }
     return null
 };
+
+var detectCycle = function (head) {
+    if (!head) return null
+    let fast = head, slow = head
+    while (fast) {
+        slow = slow.next
+        if (fast.next) fast = fast.next.next
+        else return null
+        if (fast === slow) {
+            let temp = head
+            while (temp !== slow) {
+                temp = temp.next
+                slow = slow.next
+            }
+            return temp
+        }
+    }
+    return null
