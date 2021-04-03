@@ -3,18 +3,24 @@
  * @return {number}
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/**
+ * @param {string} s
+ * @return {number}
+ */
+>>>>>>> 1a95d87aa60f7dd35a3293ca3c05daba63fe1d10
 var lengthOfLongestSubstring = function (s) {
     let store = new Set()
     let res = 0
-    let left = -1
+    let left = 0
     for (let i = 0; i < s.length; i++) {
-        if (i != 0) {
-            store.delete(s[i - 1])
-        }
-        while (left + 1 < s.length && !store.has(s[left + 1])) {
-            store.add(s[left + 1])
+        if (i != 0)  store.delete(s[i - 1])
+        while (left < s.length && !store.has(s[left])) {
+            store.add(s[left])
             left++
         }
+<<<<<<< HEAD
         res = Math.max(res, left - i + 1)
 =======
 /**
@@ -33,6 +39,9 @@ var lengthOfLongestSubstring = function (s) {
         }
         res = Math.max(res, left - i)
 >>>>>>> a67babe144c3898f5ebe0c19e674a038b71cbb88
+=======
+        res = Math.max(res, left - i)
+>>>>>>> 1a95d87aa60f7dd35a3293ca3c05daba63fe1d10
     }
     return res
 };
