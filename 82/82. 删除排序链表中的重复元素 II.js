@@ -18,7 +18,6 @@ var deleteDuplicates = function (head) {
     let prev = eNode
     let cur = eNode.next
     while (cur.next) {
-        console.log(cur.val, prev.val, repeat)
         if (cur.val !== cur.next.val) {
             if (repeat) {
                 prev.next = cur.next
