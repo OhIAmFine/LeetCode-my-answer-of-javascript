@@ -3,20 +3,25 @@
  * @param {string} num2
  * @return {string}
  */
-var multiply = function (num1, num2) {
-    if (num1 === '0' || num2 === '0') {
-        return '0'
-    }
-    var l1 = num1.length, l2 =num2.length, p = new Array(l1 + l2).fill(0)
-    for (var i = l1; i--;) {
-        for (var j = l2; j--;) {
-            var tmp = num1[i] * num2[j] + p[i + j + 1]
-            p[i + j + 1] = tmp % 10
-            p[i + j] += 0 | tmp / 10
+const multiply = (num1, num2) => {
+    const len1 = num1.length;
+    const len2 = num2.length;
+    const pos = new Array(len1 + len2).fill(0);
+
+    for (let i = len1 - 1; i >= 0; i--) {
+        const n1 = +num1[i];
+        for (let j = len2 - 1; j >= 0; j--) {
+            const n2 = +num2[j];
+            const multi = n1 * n2;
+            const sum = pos[i + j + 1] + multi;
+
+            pos[i + j + 1] = sum % 10;
+            pos[i + j] += sum / 10 | 0;
         }
     }
-    while (p[0] === 0) {
-        p.shift()
+    let resStr = pos.join('');
+    while (resStr[0] == '0') {
+        resStr = resStr.substring(1);
     }
-    return p.join('')
+    return resStr.length ? resStr : '0';
 };
