@@ -4,8 +4,6 @@
  * @return {number[][]}
  */
 var fourSum = function (nums, target) {
-    console.log(nums.length < 4)
-
     if (nums.length < 4) return []
     const res = []
     let left = 2
