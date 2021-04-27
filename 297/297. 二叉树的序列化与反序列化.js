@@ -13,11 +13,11 @@
  * @return {string}
  */
 var serialize = function (root) {
-    if (!root) return "X,"
-    const left = serialize(root.left)
-    const right = serialize(root.right)
-    return root.val + ',' + left + right
-};
+  if (!root) return 'X,'
+  const left = serialize(root.left)
+  const right = serialize(root.right)
+  return root.val + ',' + left + right
+}
 
 /**
  * Decodes your encoded data to tree.
@@ -26,21 +26,20 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
-    const arr = data.split(",")
-    return dfs(arr)
+  const arr = data.split(',')
+  return dfs(arr)
 
-    function dfs(arr) {
-        const temp = arr.shift()
-        if (temp === 'X') {
-            return null
-        }
-        const node = new TreeNode(temp)
-        console.log(temp)
-        node.left = dfs(arr)
-        node.right = dfs(arr)
-        return node
+  function dfs (arr) {
+    const temp = arr.shift()
+    if (temp === 'X') {
+      return null
     }
-};
+    const node = new TreeNode(temp)
+    node.left = dfs(arr)
+    node.right = dfs(arr)
+    return node
+  }
+}
 
 /**
  * Your functions will be called as such:
