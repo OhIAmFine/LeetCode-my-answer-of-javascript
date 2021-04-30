@@ -3,8 +3,7 @@
  * @return {number}
  */
 var integerBreak = function (n) {
-  if (n === 1 || n === 2) return 1
-  if (n === 3) return 2
+  if (n < 4) return n - 1
   const dp = new Array(n + 1).fill(0)
   dp[1] = 1
   dp[2] = 2
